@@ -27,14 +27,26 @@ Para o parâmetro que representa as transações, a String está formatada da se
 
 ## Desafio
 
-Necessidades
-Caso a transação tenha sido feito com cartão de débito
+### Necessidades
 
-O recebível deve ser criado com o status 'pago' e com o dia de recebimento apontando para o dia da transação (D + 0)
-Caso a transação tenha sido feito com cartão de crédito
+1. Caso a transação tenha sido feito com ***cartão de débito***: 
+   
+   - O recebível deve ser criado com o status `pago` e com o dia de recebimento apontando para o dia da transação (D + 0)
+   
+   - A taxa de processamento é de `3%`
 
-O recebível deve ser criado com o status 'aguardando_pagamento' e com o dia de recebimento apontando para o dia da transação mais 30 dias (D + 30)
-O valor que a loja tem a receber(recebível) em função de uma transação tem um desconto por conta da taxa de processamento.
 
-Caso a transação tenha sido feita no débito, o recebível é criado com um desconto de 3% em cima do valor da transação.
-Caso a transação tenha sido feita no crédito, o recebível é criado com um desconto de 5% em cima do valor da transação.
+2. Caso a transação tenha sido feito com ***cartão de crédito*** 
+   
+    - O recebível deve ser criado com o status `aguardando_pagamento` e com o dia de recebimento apontando para o dia da transação mais 30 dias (D + 30)
+    
+    - A taxa de processamento é de `5%`
+
+
+3. O retorno da solução deve ser uma Lista de Arrays, seguindo o padrão:
+   
+   - Contrato
+      - ```status, valorOriginal, valorComTaxa, dataDoPagamento```
+     
+   - Exemplo de retorno
+      - ``` [["pago", "200", "195", "30/04/2021"]] ```
